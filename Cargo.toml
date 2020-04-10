@@ -10,6 +10,7 @@ description = "A minimalist static webserver written in Rust + Actix"
 readme = "README.md"
 repository = "https://github.com/davidedelpapa/thttp"
 homepage = "https://github.com/davidedelpapa/thttp"
+exclude = ["static/"]
 
 [dependencies]
 actix-web = "2.0"
