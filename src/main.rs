@@ -73,7 +73,7 @@ async fn get_files(req: HttpRequest) -> Result<fs::NamedFile> {
     let path: PathBuf = match raw_path.canonicalize() {
         Ok(p) => p,
         Err(e) => {
-            println!("ERR: {} {:?}", e, raw_path);
+            println!("HTTP:404 {} {:?}", e, raw_path);
             raw_path
         }
     };
