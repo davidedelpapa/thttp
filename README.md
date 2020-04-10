@@ -1,8 +1,8 @@
 # thttp
 
-A minimalist static webserver written in Rust + Actix
+A minimalist static webserver/fileserver written in Rust + Actix
 
-#### WARNING: DO NOT USE IN PRODUCTION!!!
+#### WARNING: DO NOT USE IN PRODUCTION, IT IS MEANT FOR THE DEV !
 
 ## Usage
 
@@ -17,13 +17,15 @@ FLAGS:
     -V, --version    Prints version information
 
 OPTIONS:
-    -h, --host <host>      Server Host [default: 0.0.0.0]
-    -i, --index <index>    FIle to use as index [default: index.html]
-    -p, --port <port>      Server Port [default: 5050]
+    -h, --host <host>      Server Host [env: THTTP_HOST=]  [default: 0.0.0.0]
+    -i, --index <index>    FIle to use as index [env: THTTP_INDEX=]  [default: index.html]
+    -p, --port <port>      Server Port [env: THTTP_PORT=]  [default: 5050]
 
 ARGS:
-    <dir>    Serving directory file [default: . ]
+    <dir>    Serving directory file [default: . ] [env: THTTP_DIR=]
 ```
+
+Options can be specified as enviornment variables, or in a `.env` file, to use in a dockerized image
 
 ## Build & Run
 
@@ -47,7 +49,10 @@ cargo run -- -i readme.html -h 127.0.0.1 -p 7000 ./static
 
 ## Rationale
 
-I found myself using `python3 -m "http.server" "8080"` to run a basic server, in order to develop a basic WASM environment. I just wanted to have the whole stack in Rust.
+It starts always with one's needs: in this case, to port all dev stack in Rust.
+While developing WASM applications I was finding myself always using the `http` python module, `python3 -m "http.server" "8080"`, in order to get to test the application's output.
+This tool is a poor man's replacement, but it does its job.
+Plus I could extend it should need arise.
 
 ## Behavior
 

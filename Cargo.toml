@@ -1,6 +1,6 @@
 [package]
 name = "thttp"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["davidedelpapa <davidedelpapa@yahoo.com>"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -18,3 +18,4 @@ actix-files = "0.2.1"
 listenfd = "0.3.3"
 structopt = "0.3"
 regex = "1"
+dotenv = "0.15.0"
